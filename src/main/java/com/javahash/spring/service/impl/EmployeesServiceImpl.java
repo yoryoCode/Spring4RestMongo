@@ -2,29 +2,29 @@ package com.javahash.spring.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.javahash.spring.dao.EmployeeRepository;
+import com.javahash.spring.dao.EmployeeRepositoryQueryDsl;
 import com.javahash.spring.model.Employee;
 import com.javahash.spring.service.IEmployeesService;
 
 public class EmployeesServiceImpl implements IEmployeesService {
 	
 	@Autowired
-	private EmployeeRepository repository;
+	private EmployeeRepositoryQueryDsl repository;
 
-	public Iterable<Employee> findEmployeeByName(String name) {
-		return repository.findEmployeesByName(name);
+	public Iterable<Employee> findEmployeeByAttributes(String key, String value) {
+		return repository.findByAttributes(key, value);
 	}
 	
-	public Iterable<Employee> findEmployeeByAge(int age) {
-		return repository.findEmployeesByAge(age);
-	}
-
 	public Employee findEmployeeById(String id) {
-		return repository.findEmployeeById(id);
+		return repository.findOne(id);
 	}
 
 	public Iterable<Employee> findAll() {
 		return repository.findAll();
+	}
+	
+	public Iterable<Employee> findEmployeeByAge(int age){
+		return repository.findEmployeeByAge(age);
 	}
 
 	public Employee create(Employee employee) {

@@ -59,4 +59,10 @@ public class EmployeesServiceIntegrationTest {
     	  assertTrue(employee !=null);
       }
       
+      @Test
+      public void testGetEmployeeByAttribute() {
+    	  Iterable<Employee> employees = employeesService.findEmployeeByAttributes("name", "Jorge Garcia Marin");
+    	  assertTrue(employees !=null);
+      }
+      
 }

@@ -6,7 +6,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.querydsl.core.annotations.QueryEntity;
+
 @Document(collection = "employees")
+@QueryEntity
 public class Employee {
 	
 	@Id

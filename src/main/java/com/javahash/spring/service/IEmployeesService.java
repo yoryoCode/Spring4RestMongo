@@ -4,11 +4,11 @@ import com.javahash.spring.model.Employee;
 
 public interface IEmployeesService {
 	
-	public Iterable<Employee> findEmployeeByName(String name);
-	
-	public Iterable<Employee> findEmployeeByAge(int age);
+	public Iterable<Employee> findEmployeeByAttributes(String key, String value);
 	
 	public Employee findEmployeeById(String id);
+	
+	public Iterable<Employee> findEmployeeByAge(int age);
 	
 	public Iterable<Employee> findAll();
 	

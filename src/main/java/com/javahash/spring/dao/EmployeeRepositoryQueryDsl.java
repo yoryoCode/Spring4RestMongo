@@ -10,8 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.javahash.spring.model.Employee;
 
 @Repository
-public interface EmployeeRepository extends CrudRepository<Employee,String>{
-//public interface EmployeeRepository extends CrudRepository<Employee,String>, QueryDslPredicateExecutor<Employee> {
+public interface EmployeeRepositoryQueryDsl extends CrudRepository<Employee,String>, QueryDslPredicateExecutor<Employee> {
 	
 	List<Employee> findEmployeeByAge(int age);
 	
@@ -21,6 +20,6 @@ public interface EmployeeRepository extends CrudRepository<Employee,String>{
 	 * @param attribute
 	 * @return
 	 */
-	//@Query("{ ?0 : ?1 }")
-	//List<Employee> findByAttributes(String key, String value);
+	@Query("{ ?0 : ?1 }")
+	List<Employee> findByAttributes(String key, String value);
 }
